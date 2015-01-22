@@ -16,12 +16,12 @@ int Path[MAX+5][MAX+5];
 
 int main()
 {
-	freopen("in.txt", "r", stdin);
+	//freopen("in.txt", "r", stdin);
 	int nodes, edges, u, v, w, source;
 
 	printf("How many nodes: ");
 	cin >> nodes;
-	
+
 	printf("How many edges: ");
 	cin >> edges;
 
@@ -49,6 +49,6 @@ int main()
 			}
 		}
 	}
-	
+
 	return 0;
 }
