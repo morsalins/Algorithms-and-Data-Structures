@@ -1,7 +1,9 @@
-#include<cstdio>
-#include<ctime>
-#include<cmath>
-#include<conio.h>
+#include <cstdio>
+#include <ctime>
+#include <math.h>
+#include <string>
+#include <cstring>
+#include <conio.h>
 
 #define MAX 1000000
 
@@ -17,7 +19,7 @@ int main()
 	start=clock();
 	sieve();
 
-	for(i=3;i<=MAX;i+=2){
+	for (i = 3; i <= MAX; i += 2){
 		if(prime[i])
 			NumberofPrime++;
 	}
@@ -31,22 +33,17 @@ int main()
 }
 
 void sieve(){
-	int i,j,k;
 
-	for(i=3;i<=MAX;i+=2)
-		prime[i]=true;
+    memset(prime, true, sizeof prime); // Assume all the numbers are prime initially.
+    prime[1] = false;
+    int limit = sqrt(MAX) + 2;
 
-	prime[2]=true;
-
-	int squreroot= (int) sqrt(MAX);
-
-	for(i=3;i<=squreroot+2;i+=2){
-		if(prime[i]){
-			for(j=i*i;j<MAX+2;j+=2*i){
-				prime[j]=false;	 // Assigning false indicates that the number is not prime
-			}
-		}
-	}
-
+    for (int i = 3; i <= limit; i += 2) {
+        if (prime[i]) {
+            for (int j = i * i, k = i << 1; j <= MAX; j += i) {
+                prime[j] = false; // Assigning false which are not prime.
+            }
+        }
+    }
 	return;
 }
