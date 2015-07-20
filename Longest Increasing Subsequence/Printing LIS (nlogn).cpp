@@ -38,11 +38,11 @@ using namespace std;
 #define WRITE(f) freopen(f, "w", stdout);
 
 int A[MAX+7] = {3, 2, 4, 5, 7, 8, 6, 10}; // Input Array
-int dp[MAX+7];							  // Storing every value of A to find LIS 
+int dp[MAX+7];							  // Storing every value of A to find LIS
 int id[MAX+7];							  // Storing the index of every value of A.
-/*** if dp[i] stores a value of array A then id[i] will store the index number of that value of array A. ***/  
+/*** if dp[i] stores a value of array A then id[i] will store the index number of that value of array A. ***/
 
-int path[MAX+7]; 
+int path[MAX+7];
 /* Store the sequence of LIS by storing the index number of each value in A.
  *It will not store the value rather it will store the index number of that value in A as its ancestor.
  */
@@ -57,7 +57,7 @@ int main()
 	int LIS_Value = ans.ff; // Get the Longest increasing Subsequence value.
 	int last = ans.ss; // Get the index of last element of Longest increasing Subsequence.
 
-    printf("LIS value is : %d\n", ans);
+    printf("LIS value is : %d\n", LIS_Value);
     Print_LIS( last );
 
     return 0;
@@ -94,7 +94,7 @@ void Print_LIS(int last){
     if( last == -1 ) return;
 
     Print_LIS( path[last] ); // recurrsive call to get its ancestors.
-    
+
 	printf("%d\n", A[last]);
 
     return;
