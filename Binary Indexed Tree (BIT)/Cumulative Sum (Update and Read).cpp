@@ -53,4 +53,7 @@ long int read(int idx)
 	}
 	return sum;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
